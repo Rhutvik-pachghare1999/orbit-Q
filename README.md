@@ -1,15 +1,7 @@
-<div align="center">
-  <h1>🛰️ Orbit-Q (OrbitIQ Ops)</h1>
-  <p><strong>Enterprise-Grade Satellite Operations Command Center & Telemetry Anomaly Detection</strong></p>
+# 🛰️ Orbit-Q (OrbitIQ Ops)
+**Enterprise-Grade Satellite Operations Command Center & Telemetry Anomaly Detection**
 
-  <p>
-    ![CI Status](https://github.com/poojakira/orbit-Q/actions/workflows/ci.yml/badge.svg)
-    ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-    ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)
-    ![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B)
-    ![MLflow](https://img.shields.io/badge/MLOps-MLflow-0194E2)
-  </p>
-</div>
+![CI Status](https://github.com/poojakira/orbit-Q/actions/workflows/ci.yml/badge.svg) ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg) ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue) ![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B) ![MLflow](https://img.shields.io/badge/MLOps-MLflow-0194E2)
 
 ---
 
