@@ -3,11 +3,11 @@
   <p><strong>Enterprise-Grade Satellite Operations Command Center & Telemetry Anomaly Detection</strong></p>
 
   <p>
-    <a href="https://github.com/poojakira/orbit-Q/actions/workflows/ci.yml"><img src="https://github.com/poojakira/orbit-Q/actions/workflows/ci.yml/badge.svg" alt="CI Status"></a>
-    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-    <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.9%2B-blue" alt="Python 3.9+"></a>
-    <a href="https://streamlit.io"><img src="https://img.shields.io/badge/UI-Streamlit-FF4B4B" alt="Streamlit"></a>
-    <a href="https://mlflow.org/"><img src="https://img.shields.io/badge/MLOps-MLflow-0194E2" alt="MLflow"></a>
+    [![CI Status](https://github.com/poojakira/orbit-Q/actions/workflows/ci.yml/badge.svg)](https://github.com/poojakira/orbit-Q/actions/workflows/ci.yml)
+    [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+    [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)](https://python.org)
+    [![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B)](https://streamlit.io)
+    [![MLflow](https://img.shields.io/badge/MLOps-MLflow-0194E2)](https://mlflow.org/)
   </p>
 </div>
 
@@ -42,23 +42,12 @@ For a busy reviewer evaluating the core systems logic, please review these key c
 
 ## 🏗️ System Architecture
 
-### Text Flow (Fallback Diagram)
-`[Telemetry Simulator]` → `[Firebase Realtime DB]` → `[Orbit-Q Orchestrator]` → `[Anomaly Engine (IsolationForest)]` → `[Streamlit Operator Dashboard]`
-
-### Component Flow
-```mermaid
-graph TD;
-    A[Telemetry Simulator] -->|Real-time Data| B(Firebase Realtime DB);
-    B --> C{Orbit-Q ML Orchestrator};
-    C -->|Feature Engineering| D[Anomaly Engine];
-    D -->|IsolationForest Predict| E[Threat Detection];
-    E -->|Alert Flags| C;
-    C -->|State KPIs| F((Streamlit Dashboard));
-    
-    subgraph MLOps
-    D -.->|Artifact Log| G[MLflow Tracking];
-    end
-```
+### Component Flow (Data Pipeline)
+1. **[Telemetry Simulator]**: Synthesizes and pushes orbital state vectors.
+2. **[Firebase Realtime DB]**: Acts as the low-latency message broker.
+3. **[Orbit-Q ML Orchestrator]**: Pulls rolling windows of telemetry, computes statistical features.
+4. **[Anomaly Engine]**: Evaluates matrices using IsolationForest. Logs artifacts silently to `MLflow`.
+5. **[Streamlit Operator Dashboard]**: Subscribes to Firebase updates and paints the situational KPI ribbon.
 
 ---
 
@@ -80,9 +69,13 @@ graph TD;
 ### Commands
 ```bash
 git clone https://github.com/poojakira/orbit-Q.git
+
 cd orbit-Q
+
 python -m venv .venv
+
 source .venv/bin/activate
+
 pip install -e .[dev]
 ```
 
